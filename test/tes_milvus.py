@@ -1,8 +1,8 @@
 from transformers import AutoModelForCausalLM, BitsAndBytesConfig, AutoTokenizer
-from server.document_loader.text_loader import  MyTextLoader
+from server.document_loader import text_loader,pdf_loader
 from server.embedding.myembedding import MyEmbedding
 from server.vector.MyVector import MyVector
-from langchain.chains import RetrievalQA
+
 
 
 import torch
@@ -21,19 +21,11 @@ def fun(docs):
     myvector = MyVector(host,port)
     print(myvector.store_milvus(docs,myEmBedding.get_embedding(),"test1"))
     # print(embeddings)
-    # 设置用于保存矢量嵌入的矢量存储。这里我们使用Milvus作为向量存储。
-
-def chat():
-    pass
-
-
-
-
-
+    # 设置X用于保存矢量嵌入的矢量存储。这里我们使用Milvus作为向量存储。
 
 if __name__ == '__main__':
     # 加载document
-    doc = MyTextLoader("text.txt")
-    print(doc.get_docs())
+    doc = pdf_loader.get_docs("../server/vector/2023 Java offer 收割指南.pdf")
+    print(doc)
     # 转换成向量
-    fun(doc.get_docs())
+    fun(doc)

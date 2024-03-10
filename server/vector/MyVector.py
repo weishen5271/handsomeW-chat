@@ -13,3 +13,12 @@ class MyVector():
             connection_args={"host": self.host, "port": self.port},
             collection_name=collection_name
         )
+        return db
+        '''
+            获取milvus数据库连接
+        '''
+    def get_milvus(self,embedding,collection_name):
+        db = Milvus(embedding,
+                    connection_args={"host": self.host, "port": self.port},
+                    collection_name=collection_name)
+        return db
