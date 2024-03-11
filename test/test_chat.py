@@ -1,4 +1,4 @@
-import  requests
+import requests
 
 def chat(prompt,history):
     resp = requests.post(

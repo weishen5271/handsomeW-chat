@@ -8,6 +8,10 @@ def get_docs(path):
     text_splitter = CharacterTextSplitter(chunk_size=256, chunk_overlap=0)
     docs = text_splitter.split_documents(documents)
     return docs
+# def get_docs_file(file):
+#     text_splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=0)
+#     docs = text_splitter.create_documents([file])
+#     return docs
 
 
 

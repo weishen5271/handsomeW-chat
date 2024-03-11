@@ -1,0 +1,1 @@
+from .vector_service import save_vector

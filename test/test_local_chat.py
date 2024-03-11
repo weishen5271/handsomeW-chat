@@ -28,7 +28,7 @@ llm = ChatGLM(
     max_token = 80000,
     top_p = 0.9
 )
-myvector = MyVector(host,port)
+myvector = MyVector()
 EMBEDDING_MODEL = "bge-large-zh-v1.5"
 myEmBedding = MyEmbedding(EMBEDDING_MODEL)
 doc = text_loader.get_docs("../server/vector/text.txt")
