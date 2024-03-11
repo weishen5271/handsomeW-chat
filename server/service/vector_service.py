@@ -3,6 +3,7 @@ import mimetypes
 from server.document_loader import pdf_loader,text_loader
 from server.vector import  MyVector
 from server.embedding.myembedding import  MyEmbedding
+
 '''
     保存文件内容到向量库中
 '''
@@ -24,3 +25,13 @@ def save_vector(file_path,mime_type):
         db = myvector.store_milvus(docs,embedding.get_embedding(),"test1")
      else:
         return "传入的文件内容为空，或者格式不支持"
+
+def search(query: str):
+    myvector = MyVector()
+    embedding = MyEmbedding('bge-large-zh-v1.5')
+    db = myvector.get_milvus(embedding.get_embedding(), "test1")
+    docs = db.similarity_search(query)
+    return docs
+
+
+
