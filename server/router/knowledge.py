@@ -7,8 +7,6 @@ knowledge_router = APIRouter(
     tags = ['knowledge']
 )
 
-
-
 @knowledge_router.get('/') 
 async def welcome() -> dict:
     return { "message": "Welcome to my Page"}

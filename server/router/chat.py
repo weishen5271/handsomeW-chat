@@ -13,3 +13,10 @@ async def chat(query: str):
     prompt = prompt_service.get_prompt(content, query)
     response,history = chat_service.chat_http(prompt, history=[])
     return response
+
+@chat_router.post('/chatWithGLM')
+async def chatWithGLM(query,history ):
+    prompt = {}
+    prompt = {"role": "user","content": query}
+    response = chat_service.chat_with_online_chatglm(prompt,history,"glm-3-turbo")
+    return response

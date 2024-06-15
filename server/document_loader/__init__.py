@@ -1,2 +1,4 @@
-from .text_loader import *
-from .pdf_loader import  *
+from .mypdfloader import RapidOCRPDFLoader
+from .myimgloader import RapidOCRLoader
+from .mydocloader import RapidOCRDocLoader
+from .mypptloader import RapidOCRPPTLoader
